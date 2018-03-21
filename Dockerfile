@@ -1,3 +1,5 @@
+FROM joegagliardo/ubuntu
+MAINTAINER joegagliardo
 ENV MSSQL_SA_PASSWORD='SaPassword17!' 
 ENV MSSQL_PID='evaluation'
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
