@@ -1,5 +1,3 @@
-FROM joegagliardo/ubuntu
-MAINTAINER joegagliardo
 ENV MSSQL_SA_PASSWORD='SaPassword17!' 
 ENV MSSQL_PID='evaluation'
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - && \
@@ -10,6 +8,6 @@ apt-get update && \
 apt-get install -y mssql-server mssql-server-fts && \
 ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev && \
 ACCEPT_EULA=Y MSSQL_SA_PASSWORD=$MSSQL_SA_PASSWORD MSSQL_PID=$MSSQL_PID /opt/mssql/bin/mssql-conf -n setup accept-eula && \
-'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 
 
